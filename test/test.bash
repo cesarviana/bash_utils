@@ -45,3 +45,10 @@
     [ $status -eq 1 ]
     [ "${lines[0]}" = "The tag 000 was not found" ]
 }
+
+@test "output help" {
+    run ../read_changelog_tasks.bash --help
+    [ $status -eq 0 ]
+    [ "${lines[0]}" = "Reads a changelog file and output an array of tasks for a given version." ]
+    [ "${lines[1]}" = "Usage: read_changelog_tasks --tag <version> --path <path_to_file>" ]
+}

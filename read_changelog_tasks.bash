@@ -1,11 +1,18 @@
 #!/bin/bash
 
+if [ "$1" = '--help' ] 
+then
+    echo "Reads a changelog file and output an array of tasks for a given version."
+    echo "Usage: read_changelog_tasks --tag <version> --path <path_to_file>"
+    exit 0
+fi
+
 # Input reading
 
 while [ $# -gt 0 ]; do
 
-    [ "$1" == '--tag' ]  && tag="$2"
-    [ "$1" == '--path' ] && path="$2"
+    [ "$1" = '--tag' ]  && tag="$2"
+    [ "$1" = '--path' ] && path="$2"
     
     shift
 
